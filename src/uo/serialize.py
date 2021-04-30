@@ -178,4 +178,6 @@ class PacketWriter:
             if len(data) != self._length:
                 print(self._length, repr(data))
                 raise ProtocolError("Invalid packet length")
+        if isinstance(data, bytearray):
+            return bytes(data)
         return data
